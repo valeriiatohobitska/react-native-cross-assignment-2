@@ -1,4 +1,4 @@
-This is a React Native homework project for cross assignment 3.
+This is a React Native homework project for cross assignment 4.
 
 ![Coffee app menu screen](image.png)
 ![Coffee app search screen](image-1.png)
@@ -7,8 +7,16 @@ This is a React Native homework project for cross assignment 3.
 ![Coffee app success modal](image-4.png)
 ![Horizontal view](image-5.png)
 
-The app is based on a Figma coffee ordering prototype. The user flow is linear:
-search drink -> choose product -> checkout -> Apple Pay mock -> success message.
+The app is based on a Figma coffee ordering prototype. Assignment 4 adds
+React Navigation with Stack, Tab and Drawer navigation:
+
+- Drawer: coffee menu, help, contacts and log out screens.
+- Tabs: menu, cart, order history and profile.
+- Stack: menu -> search -> product details -> checkout.
+
+Product cards pass `productId` through `navigation.navigate()`. The product
+details and checkout screens read it from `route.params` and show a fallback
+state if the id is missing or invalid.
 
 ## Implemented UI Components
 
@@ -28,18 +36,16 @@ The app screen is built from reusable React Native components stored in `src/com
 
 Shared colors, spacing, radii, typography and platform shadows are stored in `src/constants/theme.ts`.
 Demo data is stored in `src/data/products.ts`.
+Navigation constants are stored in `src/constants/screens.ts`, and navigators
+are split into `src/navigation/StackNavigator.tsx`,
+`src/navigation/TabNavigator.tsx` and `src/navigation/DrawerNavigator.tsx`.
 
 The layout uses `useWindowDimensions` and keeps the prototype responsive for different screen widths and orientations.
 Icons use the optional `react-native-vector-icons` family package recommended in the homework tips.
 
-## Screenshots
+## Navigation Demo
 
-Add screenshots of the running app here before submitting the homework.
-
-Example names:
-
-- `screenshots/home-portrait.png`
-- `screenshots/home-landscape.png`
+[Watch navigation demo](screenshots/navigation-demo.mov)
 
 # Getting Started
 
